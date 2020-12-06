@@ -3,12 +3,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -28,7 +29,7 @@ class RestaurantTest {
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
-        Restaurant restaurant1 = Mockito.spy(restaurant);
+
 
     }
     //REFACTOR ALL THE REPEATED LINES OF CODE
@@ -56,6 +57,17 @@ class RestaurantTest {
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //<<<<<<<<<<<<<<<<<<For Calculating Amount >>>>>>>>>>>>>>>>>>>>\\
+    @Test
+    public void calculated_Total_amount_for_selected_item_should_be_as_expected_amount (){
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("Noodles",50));
+        items.add(new Item("Pasta",150));
+        items.add(new Item("Lasagne",250));
+        double amount = restaurant.TotalAmountForSelectedItems(items);
+        assertEquals(450,amount);
+    }
+
 
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
