@@ -62,6 +62,11 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
+
+    public double getAmount() {
+        return amount;
+    }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
@@ -77,7 +82,13 @@ public class Restaurant {
 
 
     public double TotalAmountForSelectedItems(List<Item> selectedItems) {
-
+        for(Item item: selectedItems){
+            amount += item.getPrice();
+        }
         return amount;
+    }
+    public void DisplayAmount()
+    {
+        System.out.println("Your order will cost " +this.getAmount());
     }
 }

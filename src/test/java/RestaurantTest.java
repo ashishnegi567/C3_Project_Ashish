@@ -61,11 +61,11 @@ class RestaurantTest {
     @Test
     public void calculated_Total_amount_for_selected_item_should_be_as_expected_amount (){
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Noodles",50));
-        items.add(new Item("Pasta",150));
-        items.add(new Item("Lasagne",250));
+        items.add(new Item("Samosa",100));
+        items.add(new Item("Chilly Potato's",200));
+        items.add(new Item("Sweets",200));
         double amount = restaurant.TotalAmountForSelectedItems(items);
-        assertEquals(450,amount);
+        assertEquals(500,amount);
     }
 
 
